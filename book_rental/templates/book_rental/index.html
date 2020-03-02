@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+</head>
+<body>
+<h1>Hello</h1>
+
+{% for category in category_list %}
+
+<a href = '{% url "book_rental:book_selection" category.id %}'>{{category.book_category_name}}</a><br><br>
+{% endfor %}
+
+<a href = '/books/createcategoryform'>Add new category</a><br><br>
+</body>
+</html>

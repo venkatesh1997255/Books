@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>{{bookcategory}}</h1>
+
+Rs{{bookcategory.cost}} only per day<br><br>
+<form action="" method="post">
+    {% csrf_token %}
+     Number of days :<input type="text" name="days"><br>
+{% for book in books %}
+<input type="checkbox" name="books[]" value="{{book.id}}">
+{{book.book_name}}<br><br>
+{% endfor %}
+    <input type="submit" value="add" />
+</form>
+<a href = '{% url "book_rental:add_book" bookcategory.id %}'>Add Book</a><br><br>
+<a href = '{% url "book_rental:calculate" bookcategory.id %}'>Calculate</a><br><br>
+</body>
+</html>
